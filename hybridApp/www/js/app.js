@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,11 +32,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.home', {
+    url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/home.html',
+        controller: 'AppCtrl'
+      }
+    }
+  })
+
+  .state('app.playlists', {
+    url: '/playlists',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/playlists.html',
+        controller : 'VideolistCtrl'
       }
     }
   })
@@ -45,29 +56,87 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/browse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/browse.html',
+          controller: 'MapCtrl'
         }
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+
+    .state('app.login', {
+      url: '/login',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/login.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
+
+
+  .state('app.street', {
+    url: '/street',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/street.html',
+        controller: 'ViewCtrl'
       }
     }
-  });
+  })
+
+
+  .state('app.back', {
+    url: '/back',
+    views: {
+      'menuContent': {
+      templateUrl: 'templates/back.html',
+      controller: 'ViewCtrl'
+      }
+    }
+  })
+
+
+  .state('app.chest', {
+    url: '/chest',
+    views: {
+        'menuContent': {
+        templateUrl: 'templates/chest.html',
+        controller: 'ViewCtrl'
+        }
+      }
+    })
+
+
+  .state('app.plus', {
+    url: '/plus',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/plus.html',
+        controller: 'VideoCtrl'
+      }
+    }
+  })
+
+  .state('app.help', {
+    url: '/help',
+    views: {
+        'menuContent': {
+        templateUrl: 'templates/help.html'
+        }
+      }
+    })
+
+    .state('app.manage', {
+      url: '/manage',
+      views: {
+          'menuContent': {
+          templateUrl: 'templates/manage.html'
+          }
+        }
+      });
+
+
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });

@@ -1,8 +1,16 @@
-<ion-view view-title="Playlists">
+<ion-view view-title="운동영상" hide-back-button="true">
+  <ion-nav-bar class="bar-calm" align-title="center">
+    <ion-nav-buttons side="left">
+      <a class="button button-clear button-icon icon ion-chevron-left" ui-sref="app.home"></a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
+      <a class="button button-block button-positive" href="#/app/plus">운동영상</a>
+      <p><a class="button button-block button -positive" href="#/app/street">크로스핏 영상</a></p>
+      <p><a class="button button-block button -positive" href="#/app/chest">스트레칭 영상</a></p>
+      <p><a class="button button-block button -positive" href="#/app/back">헬스 영상</a></p>
       </ion-item>
     </ion-list>
   </ion-content>

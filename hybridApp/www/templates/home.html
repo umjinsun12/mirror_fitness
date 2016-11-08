@@ -1,0 +1,23 @@
+<ion-view view-title="머신휘트니스">
+  <ion-nav-bar class="bar-calm" align-title="center">
+    <ion-nav-buttons side="right">
+      <button class="button" ng-click="logout()" ui-sref="app.login"><i class="icon ion-ios-unlocked-outline"></i> Logout</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+    <ion-content>
+      <ion-list>
+        <!--
+        <p><a class="button button-block button -positive" href="#/app/playlists">Playlist</a></p>
+        <p><a class="button button-block button -positive" href="#/app/browse">Browse</a></p>
+        <p><a class="button button-block button -positive" href="#/app/login">Login</a></p>
+      -->
+        <a href="#/app/manage"><img ng-src = "img/manage.gif" width = "320" height="150" class = "center-image"/></a>
+        <a href="#/app/playlists"><img ng-src = "img/playlist.gif" width = "320" height="150" class = "center-image"/></a>
+        <a href="#/app/browse" ng-click="health_map()"><img ng-src = "img/structure.gif" width = "320" height="150" class = "center-image"/></a>
+        <a href="#/app/home"><img ng-src = "img/training.gif" width = "320" height="150" class = "center-image"/></a>
+        <a href="#/app/help"><img ng-src = "img/help.gif" width = "320" height="150" class = "center-image"/></a>
+        <a href="#/app/home"><img ng-src = "img/setting.gif" width = "320" height="150" class = "center-image"/></a>
+        <a href="#/app/login"><img ng-src = "img/login.gif" width = "320" height="150" class = "center-image"/></a>
+        </ion-item>
+    </ion-content>
+</ion-view>

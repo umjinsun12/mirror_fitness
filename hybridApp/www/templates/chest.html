@@ -1,0 +1,18 @@
+<ion-view view-title="Chest" hide-back-button="true">
+  <ion-nav-bar class="bar-calm" align-title="center">
+    <ion-nav-buttons side="left">
+      <a class="button button-clear button-icon icon ion-chevron-left" ui-sref="app.playlists"></a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header" padding="true">
+    <div class="list card" ng-repeat="video in view_chest">
+      <div class="item item-image">
+        <img src="https://img.youtube.com/vi/{{video.url}}/mqdefault.jpg">
+      </div>
+      <a class="item item-icon-left assertive" ng-click="SendUrl(video.url)" href="https://www.youtube.com/watch?v={{video.url}}" target="_blank">
+        <h2>{{video.title}}</h2>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

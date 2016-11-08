@@ -1,18 +1,13 @@
 <ion-view view-title="Chats" hide-nav-bar="true">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+  <ion-content class="main_bg padding">
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
-
-    
+    <div class="map_container">
+      <div class="map_msg">
+        머신휘트니스 구조도
+      </div>
+      <div class="health_map">
+        <img src="img/health_map.png" />
+      </div>
+    </div>
   </ion-content>
 </ion-view>

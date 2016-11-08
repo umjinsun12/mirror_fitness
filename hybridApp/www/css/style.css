@@ -1,1 +1,92 @@
 /* Empty. Add your own CSS if you like */
+.center-image{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:0px;
+  display: block;
+  max-width: 400px !important;
+  max-height: 500px !important;
+}
+
+.login_image {
+    background: url("http://igrus.vps.phps.kr/login-bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.login-title{
+  font-size:40px;
+  color: #fff;
+  text-align: center;
+  margin-top: 100px;
+  font-weight: bold;
+}
+.login-subtitle{
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  margin-top: 20px;
+}
+.form-login {
+	max-width: 300px;
+	margin: 80px auto 0;
+	background: #fff;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.form-login h2.form-login-heading {
+	margin: 0;
+	padding: 20px 20px;
+	text-align: center;
+	background: #68dff0;
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+.login-wrap {
+	padding: 20px;
+}
+.login-wrap .registration {
+	text-align: center;
+}
+.login-social-link {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.button.button-facebook {
+  min-height: 5px !important;
+  color: #fff;
+  background-color: #5193ea;
+  border-color: #fff;
+  <!--border-color: #2775e2;-->
+}
+.button.button-google {
+  min-height: 5px !important;
+  color: #fff;
+  background-color: #D50F25;
+  border-color: #fff;
+}
+
+
+.login-social-link {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.button.button-sign {
+  border-color: transparent;
+  float:center;
+  line-height: 50%
+  height: 5x;
+  width: 250px;
+  background-color: #68dff0;
+  color: #fff;
+}

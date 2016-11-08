@@ -29,6 +29,20 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA32xdY63tBZggZZbrPGYHSJPQ649wrW8Y",
+        authDomain: "fitnessapp-f7271.firebaseapp.com",
+        databaseURL: "https://fitnessapp-f7271.firebaseio.com",
+        storageBucket: "fitnessapp-f7271.appspot.com",
+        messagingSenderId: "732750606220"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+
     <!-- your app's js -->
     <script src="js/weather-service.js"></script>
     <script src="js/app.js"></script>

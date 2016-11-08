@@ -1,6 +1,26 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['firebase'])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $state,$firebaseObject, $firebaseArray) {
+
+
+  var remote_ref = firebase.database().ref().child("remote");
+  $scope.remote = $firebaseObject(remote_ref);
+
+
+  $scope.remote.$watch(function(){
+    console.log($scope.remote.state);
+
+    if($scope.remote.state == "youtube"){
+      $state.go('tab.account');
+    }
+
+    if($scope.remote.state == "health_map"){
+      $state.go('tab.chats');
+    }
+  });
+
+
+
   $scope.options = {
     loop: false,
     effect: 'fade',
@@ -23,27 +43,81 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('ChatsCtrl', function($scope, $state, Chats, $firebaseObject) {
+
+  var remote_ref = firebase.database().ref().child("remote");
+  $scope.remote = $firebaseObject(remote_ref);
 
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
   };
+
+  $scope.remote.$loaded().then(function(){
+    if($scope.remote.state == "main"){
+      $state.go('tab.dash');
+    }
+   });
+
+  $scope.remote.$watch(function(){
+    if($scope.remote.state == "main"){
+      $state.go('tab.dash');
+    }
+  });
+
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+.controller('ChatDetailCtrl', function($scope, $state, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('AccountCtrl', function($scope, $state,$firebaseObject) {
+  var remote_ref = firebase.database().ref().child("remote").child("state");
+  $scope.remote = $firebaseObject(remote_ref);
+
+
+
+
+ $scope.remote.$loaded().then(function(){
+   if($scope.remote == "main"){
+     console.log("메인으로 갑시다");
+     $state.go('tab.dash');
+   }
+  });
+
+   $scope.remote.$watch(function(){
+      console.log($scope.remote);
+       if($scope.remote.$value == "main"){
+         console.log("메인으로 갑시당");
+         $state.go('tab.dash');
+       }
+   });
+
+
+
+   $scope.playVideo = function() {
+            var iframe = document.getElementsByTagName("iframe")[0].contentWindow;
+           iframe.postMessage('{"event":"command","func":"' + 'playVideo' +   '","args":""}', '*');
+    };
+
+    $scope.pauseVideo = function() {
+            var iframe = document.getElementsByTagName("iframe")[0].contentWindow;
+           iframe.postMessage('{"event":"command","func":"' + 'pauseVideo' +   '","args":""}', '*');
+    };
+
+    $scope.youtube_pause = function(){
+       console.log("영상 정지");
+       $scope.pauseVideo();
+    };
+
+    $scope.$on('$ionicView.beforeLeave', function(){
+           $scope.pauseVideo();
+       });
+
+       $scope.$on('$ionicView.enter', function(){
+           $scope.playVideo();
+       });
+
+
+
 });

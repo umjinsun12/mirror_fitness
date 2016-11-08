@@ -42,6 +42,25 @@
 }
 
 
+/*health_map*/
+
+.map_container{
+  padding:50px;
+  padding-top: 200px;
+}
+
+.map_msg{
+  text-align: center;
+  font-size: 70px;
+  font-weight: 600;
+  margin-top: 300px;
+}
+
+.health_map{
+  text-align: center;
+  margin-top: 200px;
+}
+
 
 
 
@@ -198,7 +217,9 @@ dt {
 }
 
 .youtube {
-    height: 100%;
+    text-align: center;
+    margin-left: 40px;
+    margin-top: 50%;
 }
 
 .contents-box {
